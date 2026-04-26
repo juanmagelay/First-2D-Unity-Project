@@ -1,0 +1,7 @@
+Programar:
+
+-  Personaje recolecta pickups con diversos efectos en el personaje. (Vector2.Distance)
+
+-  Enemigo que persigue al jugador y dispara con un tiempo de recarga. (Transform, Instantiate, Cooldown)
+
+-  Generador de enemigos con un temporizador que varía en niveles (daño básico, daño medio, daño máximo)

@@ -1,0 +1,4 @@
+- Ir a la carpeta Resources.
+- Identificar los objetos disponibles.
+- Arrastrar los prefabs a la jerarquia de la escena (Clase 4) o instanciarlos por codigo
+- Ubicarlos correctamente dentro de la jerarquia segun la organizacion del proyecto.
