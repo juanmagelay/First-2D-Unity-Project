@@ -44,7 +44,7 @@ public class MultiShotSkill : BaseSkill
     {
         Shooting shooting = GetComponent<Shooting>();
         shooting.Shot();
-        shooting.Shot();
-        shooting.Shot();
+        shooting.Shot(shooting.shootPoint.up * 0.3f);
+        shooting.Shot(shooting.shootPoint.up * 0.6f);
     }
 }

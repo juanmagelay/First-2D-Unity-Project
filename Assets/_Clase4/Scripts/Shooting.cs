@@ -9,10 +9,21 @@ public class Shooting : MonoBehaviour
     public Transform shootPoint;
     public float bulletSpeed = 10f;
 
+    // Shooting tiene dos overloads de Shot().
+    // Shot() sin parámetros es compatible con System.Action, 
+    // que es el tipo del slot shootAction en CharacterControler.
+    // System.Action solo acepta métodos sin parámetros, 
+    // por eso no se puede usar un único Shot() con offset opcional —
+    // aunque sea opcional, la firma cambia y deja de ser compatible.
+    // Shot(Vector3 offset) es para uso directo desde skills como MultiShotSkill.
     public void Shot()
     {
         Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+    }
 
+    public void Shot(Vector3 offset)
+    {
+        Instantiate(bulletPrefab, shootPoint.position + offset, shootPoint.rotation);
     }
 
 }
