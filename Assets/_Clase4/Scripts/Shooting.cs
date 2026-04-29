@@ -18,12 +18,14 @@ public class Shooting : MonoBehaviour
     // Shot(Vector3 offset) es para uso directo desde skills como MultiShotSkill.
     public void Shot()
     {
-        Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        bulletObj.GetComponent<Bullet>().speed = bulletSpeed;   
     }
 
     public void Shot(Vector3 offset)
     {
-        Instantiate(bulletPrefab, shootPoint.position + offset, shootPoint.rotation);
+        GameObject bulletObj =Instantiate(bulletPrefab, shootPoint.position + offset, shootPoint.rotation);
+        bulletObj.GetComponent<Bullet>().speed = bulletSpeed;
     }
 
 }
