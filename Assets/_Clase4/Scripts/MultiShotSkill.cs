@@ -6,7 +6,8 @@ using UnityEngine;
 public class MultiShotSkill : BaseSkill
 {
     private CharacterControler characterControler;
-    
+    private EnemyController enemyController;
+
     //  Antes de swapear el slot, guardamos lo que había. 
     // Sin esto no podríamos restaurarlo en RevertEffect.
     private System.Action originalShootAction;
@@ -20,6 +21,8 @@ public class MultiShotSkill : BaseSkill
     void Awake()
     {
         characterControler = GetComponent<CharacterControler>();
+        enemyController = GetComponent<EnemyController>();
+
     }
 
     
@@ -31,16 +34,27 @@ public class MultiShotSkill : BaseSkill
     */
     protected override void ApplyEffect()
     {
-        originalShootAction = characterControler.shootAction;
-        characterControler.shootAction = MultiShot; // Reemplaza el método del slot por el nuevo método con el efecto de la skill
+        if (characterControler != null)
+        {
+            originalShootAction = characterControler.shootAction;
+            characterControler.shootAction = MultiShot;
+        }
+        else if (enemyController != null)
+        {
+            originalShootAction = enemyController.shootAction;
+            enemyController.shootAction = MultiShot;
+        }
     }
 
     // Restaura el slot al valor original guardado. En CharacterController, el slot apunta al método Shot() 
+
     protected override void RevertEffect()
     {
-        characterControler.shootAction = originalShootAction;
+        if (characterControler != null)
+            characterControler.shootAction = originalShootAction;
+        else if (enemyController != null)
+            enemyController.shootAction = originalShootAction;
     }
-
     private void MultiShot()
     {
         Shooting shooting = GetComponent<Shooting>();
