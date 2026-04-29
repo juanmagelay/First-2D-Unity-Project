@@ -7,7 +7,8 @@ public class MultiShotSkill : BaseSkill
 {
     private CharacterControler characterControler;
     
-    //  Antes de swapear el slot, guardamos lo que había. Sin esto no podríamos restaurarlo en RevertEffect.
+    //  Antes de swapear el slot, guardamos lo que había. 
+    // Sin esto no podríamos restaurarlo en RevertEffect.
     private System.Action originalShootAction;
 
     

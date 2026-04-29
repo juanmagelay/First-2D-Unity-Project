@@ -15,7 +15,10 @@ public class CharacterControler : MonoBehaviour
         movement = GetComponent<Movement>();
         shooting = GetComponent<Shooting>();
         
-        // Variable para que el character controller no tenga que conocer el shooting si es con o sin habilidad. Le asignamos el método Shot por default, pero podríamos asignar cualquier otro método con la misma firma o dejarlo como null para que no haga nada al disparar
+        // Variable para que el character controller no tenga que conocer 
+        // el shooting si es con o sin habilidad. Le asignamos el método Shot 
+        // por default, pero podríamos asignar cualquier otro método con 
+        // la misma firma o dejarlo como null para que no haga nada al disparar
         shootAction = shooting.Shot; 
 
     }
